@@ -28,3 +28,4 @@ const data = parser.parse(text, schema); // Fixed & validated
 ```
 
 ## License: MIT
+# Example
