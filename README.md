@@ -1,4 +1,5 @@
 # Structured Output Parser
+![CI](https://github.com/FerrowAI/structured-output-parser/actions/workflows/ci.yml/badge.svg)
 
 Extract JSON from LLM text output, with a fallback if it can't be parsed.
 
