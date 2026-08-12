@@ -8,6 +8,6 @@ Extract JSON from LLM text output, with a fallback if it can't be parsed.
 - `StructuredParser`
 
 ## Install
-Each library is a standalone GitHub repo under github.com/Ruzylo-cloud.
+Each library is a standalone GitHub repo under github.com/FerrowAI.
 
-Part of the Ferrow open-source toolkit: https://github.com/Ruzylo-cloud/ferrow-toolkit — sponsored by https://ferrow.ai
+Part of the Ferrow open-source toolkit: https://github.com/FerrowAI/ferrow-toolkit — sponsored by https://ferrow.ai
