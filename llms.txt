@@ -1,7 +1,7 @@
 # structured-output-parser
 > Extract and repair JSON from LLM text output, with a fallback option
 
-Extract JSON from LLM text output, with a fallback if it can't be parsed. ```javascript const parser = new StructuredParser();
+Extract JSON from LLM text output, with a fallback if it can't be parsed.
 
 ## API
 - `ParseOptions`
