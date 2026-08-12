@@ -1,31 +1,41 @@
 # Structured Output Parser
 
-Parse and validate JSON from LLM responses with zero runtime overhead.
+Extract JSON from LLM text output, with a fallback if it can't be parsed.
 
 ```javascript
-const parser = new StructuredParser(schema);
+const parser = new StructuredParser();
 const result = parser.parse(llmOutput);
-// Type-safe, validated result
 ```
 
 ## Why
-- LLMs sometimes return invalid JSON
-- Manual parsing = crashes
-- This catches, fixes, and validates
 
-## Features
-- ✓ Auto-repair malformed JSON
-- ✓ Schema validation (Zod-compatible)
-- ✓ Detailed error messages
-- ✓ TypeScript-first
-- ✓ Works with Claude, GPT, Llama
+LLMs sometimes wrap JSON in prose, markdown fences, or return slightly malformed JSON. Manually handling that on every call is annoying.
+
+## What it does
+
+- Tries `JSON.parse()` on the raw text first.
+- If that fails, looks for the first `{...}` or `[...]` block in the text and tries parsing that.
+- If both fail and you passed a `fallback` option, returns the fallback instead of throwing.
+- If both fail and there's no fallback, throws an `Error` with the original text.
+
+## What it does NOT do
+
+- It does not validate against a schema. The `schema` argument to `.parse()` is accepted but currently unused — pass it if you want (e.g. for your own future integration), but nothing in this library checks the parsed data against it.
+- No Zod integration, despite earlier versions of this README claiming one. If you want schema validation, run the parsed result through your own validator (Zod, Ajv, etc.) after calling `.parse()`.
 
 ## Example
+
 ```javascript
-const schema = z.object({ name: z.string(), age: z.number() });
-const text = 'name: "John", age: "30"}'; // Invalid JSON
-const data = parser.parse(text, schema); // Fixed & validated
+const parser = new StructuredParser();
+const text = 'Sure, here you go: {"name": "John", "age": 30}';
+const data = parser.parse(text); // { name: "John", age: 30 }
+
+// with a fallback
+const safe = parser.parse('not json at all', undefined, { fallback: {} }); // {}
 ```
 
 ## License: MIT
-# Example
+
+---
+
+Sponsored by [Ferrow](https://ferrow.ai)

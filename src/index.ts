@@ -32,10 +32,4 @@ export class StructuredParser {
     }
   }
 
-  validate(data: any, schema: any): boolean {
-    if (!schema) return true;
-    // Basic validation - can be extended with proper schema validation
-    return typeof data === 'object' && data !== null;
-  }
 }
-export function inferSchema() {}
