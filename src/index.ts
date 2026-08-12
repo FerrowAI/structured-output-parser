@@ -38,3 +38,4 @@ export class StructuredParser {
     return typeof data === 'object' && data !== null;
   }
 }
+export function inferSchema() {}
