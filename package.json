@@ -1,1 +1,21 @@
-{"name":"structured-output-parser","version":"1.0.0","description":"Extract and repair JSON from LLM text output, with a fallback option","main":"dist/index.js","types":"dist/index.d.ts","scripts":{"build":"tsc","test":"jest"},"keywords":["llm","json","parser","json-repair","llm-output","typescript"],"license":"MIT","author":"Ruzylo-cloud"}
+{
+  "name": "@ferrow/structured-output-parser",
+  "version": "1.0.0",
+  "description": "Extract and repair JSON from LLM text output, with a fallback option",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "llm",
+    "json",
+    "parser",
+    "json-repair",
+    "llm-output",
+    "typescript"
+  ],
+  "license": "MIT",
+  "author": "Ruzylo-cloud"
+}
